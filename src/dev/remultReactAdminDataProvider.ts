@@ -52,7 +52,7 @@ export class RemultReactAdminDataProvider implements DataProvider {
   async getMany(resource: string, params: GetManyParams): Promise<GetManyResult<any>> {
     let repo = this.getRepo(resource);
     return {
-      data: await repo.find({ where: repo.metadata.idMetadata.createIdInFilter(params.ids as any) })
+      data: await repo.find({ where: { id: params.ids } })
     };
   }
   async getManyReference(resource: string, params: GetManyReferenceParams): Promise<GetManyReferenceResult<any>> {
