@@ -8,12 +8,14 @@ import { Post } from "./model/Post";
 import { User } from "./model/User";
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
+import Dashboard from "./components/Dashboard";
 
 
 const dataProvider = new RemultReactAdminDataProvider(remult, [User, Post]);
-const App = () => <Admin dataProvider={dataProvider} >
-  <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
-  <Resource name="users" list={UserList} icon={UserIcon} />
-</Admin>;
+const App = () =>
+  <Admin dataProvider={dataProvider} dashboard={Dashboard}>
+    <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
+    <Resource name="users" list={UserList} icon={UserIcon} />
+  </Admin>;
 
 export default App;
